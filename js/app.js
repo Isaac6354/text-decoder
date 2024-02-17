@@ -6,7 +6,6 @@ function alterarTextAreaCriptografado() {
     document.querySelector('.container__textarea__direita').setAttribute('style', 'display: none');
 };
 
-
 function limparTextAreaInput() {
     document.querySelector(".container__textarea__vazio").setAttribute("style", "display: none");
     document.querySelector(".container__textarea__direita").setAttribute("style", "display:flex");
@@ -22,8 +21,10 @@ function verificarLetraMaiuscula(texto) {
 }
 
 function verificarCaractereEspecial(texto) {
-    let caracteresEspeciais = /[^\u0000-\u007F]/;
-    return caracteresEspeciais.test(texto);
+    const caracteresEspeciais = /[!@#$%^&*(),.?":{}|<>]/;
+    const caracteresAcentuados = /[À-ÖØ-öø-ÿ]/; 
+    const contemNumeros = /\d/;
+    return caracteresEspeciais.test(texto) || caracteresAcentuados.test(texto) || contemNumeros.test(texto);
 }
 
 function criptografarTexto() {
@@ -48,12 +49,13 @@ function descriptografarTexto() {
     limparTextAreaInput();
 }
 
-function copiarTextoCriptografado() {
+async function copiarTextoCriptografado() {
     let textoCriptografado = document.querySelector('.textarea-output').value;
     try {
-        navigator.clipboard.writeText(textoCriptografado);
+        await navigator.clipboard.writeText(textoCriptografado);
         alert('Texto copiado para a área de transferência!!!');
-      } catch (erro) {
-        alert.error('Falha ao copiar o texto criptografado: ', +erro);
+    } catch (erro) {
+        console.error('Falha ao copiar o texto criptografado: ', erro);
+        alert('Falha ao copiar o texto criptografado. Verifique o console para mais detalhes.');
     }
 }
