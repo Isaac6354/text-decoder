@@ -17,4 +17,4 @@ As  tecnologias utilizadas pra isso são:
 
 ## 📁 Acesso ao projeto
 
-Vôce pode acessar o projeto em: ()
+Vôce pode acessar o projeto em: (https://text-decoder-kappa.vercel.app/)
