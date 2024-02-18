@@ -53,7 +53,8 @@ async function copiarTextoCriptografado() {
     let textoCriptografado = document.querySelector('.textarea-output').value;
     try {
         await navigator.clipboard.writeText(textoCriptografado);
-        alert('Texto copiado para a área de transferência!!!');
+        textAreaInput.value = textoCriptografado;
+        alert('Texto copiado para a caixa de texto principal e a área de transferência!!!');
     } catch (erro) {
         console.error('Falha ao copiar o texto criptografado: ', erro);
         alert('Falha ao copiar o texto criptografado. Verifique o console para mais detalhes.');
