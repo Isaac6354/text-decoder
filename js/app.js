@@ -21,7 +21,7 @@ function verificarLetraMaiuscula(texto) {
 }
 
 function verificarCaractereEspecial(texto) {
-    const caracteresEspeciais = /[!@#$%^&*(),.?":{}|<>]/;
+    const caracteresEspeciais = /[!@#$%^&*(),.?":;{}|<>]/;
     const caracteresAcentuados = /[À-ÖØ-öø-ÿ]/; 
     const contemNumeros = /\d/;
     return caracteresEspeciais.test(texto) || caracteresAcentuados.test(texto) || contemNumeros.test(texto);
